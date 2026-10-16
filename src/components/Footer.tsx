@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, MapPin, Phone, Youtube } from "lucide-react";
-import ExplorersLogo from "@/components/ExplorersLogo";
 import { officialSocialLinks } from "@/data/siteData";
 
 const quickLinks = [
@@ -69,7 +68,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div className="space-y-5">
             <div>
-              <ExplorersLogo className="mb-2 h-14 w-60 text-white" />
+              <img
+                src="/Header_Logo_Reverse_400x75px.png"
+                alt="Explorers Treks & Tours"
+                className="mb-3 h-auto w-full max-w-[25rem] object-contain object-left"
+              />
               {/* Item 24: Below logo keep TREKS TOURS TRAINING line */}
               <p className="mb-1 font-heading text-sm font-black uppercase tracking-[0.22em] text-white">
                 TREKS • TOURS • TRAINING
