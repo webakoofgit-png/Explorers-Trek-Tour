@@ -71,7 +71,7 @@ const Footer = () => {
               <img
                 src="/Header_Logo_Reverse_400x75px.png"
                 alt="Explorers Treks & Tours"
-                className="mb-3 h-auto w-full max-w-[25rem] object-contain object-left"
+                className="mb-3 h-auto w-full max-w-[18rem] object-contain object-left"
               />
               {/* Item 24: Below logo keep TREKS TOURS TRAINING line */}
               <p className="mb-1 font-heading text-sm font-black uppercase tracking-[0.22em] text-white">
