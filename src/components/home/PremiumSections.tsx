@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, ChevronLeft, ChevronRight, MessageCircle, Star } from "lucide-react";
+import { Award, CalendarClock, ChevronLeft, ChevronRight, MessageCircle, Mountain, ShieldCheck, Star } from "lucide-react";
 import { awards, googleReviews, socialChannels, trustStats } from "@/data/siteData";
-import TrustStatIcon from "@/components/TrustStatIcon";
 import {
   getWhatsAppGroupLink,
   SITE_SETTINGS_UPDATED_EVENT,
@@ -45,10 +44,32 @@ export const StatsSection = () => (
     <div className="container mx-auto grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
       {trustStats.map((stat) => {
         const isGoogleRating = stat.label === "Google Rating";
+        const StatIcon = stat.label === "Years Experience"
+          ? CalendarClock
+          : stat.label === "Treks Completed"
+            ? Mountain
+            : ShieldCheck;
 
         return (
         <div key={stat.label} className="rounded-lg border border-border bg-card p-4 text-center shadow-sm">
-          <TrustStatIcon label={stat.label} className="mx-auto mb-2" />
+          {isGoogleRating ? (
+            <img
+              src="/google-g-logo.svg"
+              alt="Google"
+              className="mx-auto mb-2 h-10 w-10 object-contain"
+              loading="lazy"
+            />
+          ) : stat.label === "Certified by Maharashtra Tourism" ? (
+            <img
+              src="/maharashtra.png"
+              alt="Maharashtra Tourism"
+              className="mx-auto mb-2 h-10 w-10 object-contain"
+            />
+          ) : (
+            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <StatIcon className="h-5 w-5" aria-hidden="true" />
+            </div>
+          )}
           <div className="font-heading text-2xl font-black text-primary">{stat.number}</div>
           <div className="mt-1 font-heading text-xs font-black uppercase text-foreground">{stat.label}</div>
           {isGoogleRating && (

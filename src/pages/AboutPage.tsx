@@ -4,7 +4,6 @@ import Layout from "@/components/Layout";
 import { trustStats } from "@/data/siteData";
 import { CheckCircle2, ShieldCheck, Users, Leaf } from "lucide-react";
 import InternalPageHero from "@/components/InternalPageHero";
-import TrustStatIcon from "@/components/TrustStatIcon";
 
 const heroMountains = "/images/hero-mountains.jpg";
 const heroWomen = "/images/hero-women.jpg";
@@ -139,7 +138,13 @@ const AboutPage = () => {
                   transition={{ delay: i * 0.1 }}
                   className="rounded-lg border border-border bg-background p-6 text-center card-shadow"
                 >
-                  <TrustStatIcon label={stat.label} className="mx-auto mb-3" />
+                  {stat.label === "Certified by Maharashtra Tourism" ? (
+                    <img
+                      src="/maharashtra.png"
+                      alt="Maharashtra Tourism"
+                      className="mx-auto mb-3 h-10 w-10 object-contain"
+                    />
+                  ) : null}
                   <div className="font-heading text-3xl font-extrabold text-foreground mb-2">{stat.number}</div>
                   <p className="text-muted-foreground font-body text-sm">{stat.label}</p>
                 </motion.div>
