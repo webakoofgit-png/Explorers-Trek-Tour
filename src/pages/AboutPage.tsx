@@ -138,13 +138,12 @@ const AboutPage = () => {
                   transition={{ delay: i * 0.1 }}
                   className="rounded-lg border border-border bg-background p-6 text-center card-shadow"
                 >
-                  {stat.label === "Certified by Maharashtra Tourism" ? (
-                    <img
-                      src="/maharashtra.png"
-                      alt="Maharashtra Tourism"
-                      className="mx-auto mb-3 h-10 w-10 object-contain"
-                    />
-                  ) : null}
+                  <img
+                    src={stat.logo}
+                    alt={stat.logoAlt}
+                    className="mx-auto mb-3 h-10 w-24 object-contain"
+                    loading="lazy"
+                  />
                   <div className="font-heading text-3xl font-extrabold text-foreground mb-2">{stat.number}</div>
                   <p className="text-muted-foreground font-body text-sm">{stat.label}</p>
                 </motion.div>
