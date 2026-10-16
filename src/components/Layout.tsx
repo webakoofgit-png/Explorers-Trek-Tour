@@ -1,0 +1,22 @@
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import WhatsAppButton from "./WhatsAppButton";
+import BackToTopButton from "./BackToTopButton";
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 pt-[76px] md:pt-[90px]">{children}</main>
+      <Footer />
+      <BackToTopButton />
+      <WhatsAppButton />
+    </div>
+  );
+};
+
+export default Layout;
