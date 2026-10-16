@@ -70,18 +70,17 @@ export const globalSchedule = [
 ];
 
 export const trustStats = [
-  { number: "24+", label: "Years Experience", note: "Since 2001", logo: "/logo.png", logoAlt: "Explorers Treks and Tours" },
-  { number: "Certified", label: "Certified by Maharashtra Tourism", note: "Recognised operator", logo: "/maharashtra.png", logoAlt: "Maharashtra Tourism" },
-  { number: "100%", label: "Safety Record", note: "Trained leaders", logo: "/award logos/ATOAI India.png", logoAlt: "Adventure Tour Operators Association of India" },
+  { number: "24+", label: "Years Experience", note: "Since 2001", icon: "24+" },
+  { number: "Certified", label: "Certified by Maharashtra Tourism", note: "Recognised operator", icon: "MT" },
+  { number: "100%", label: "Safety Record", note: "Trained leaders", icon: "100" },
   {
     number: "4.7/5",
     label: "Google Rating",
     note: "Based on 476 Google reviews",
-    logo: "/google-g-logo.svg",
-    logoAlt: "Google",
+    icon: "Google",
     link: "https://share.google/gjutfkcL6JiTO7W7X",
   },
-  { number: "5000+", label: "Treks Completed", note: "Across India", logo: "/logo.png", logoAlt: "Explorers Treks and Tours" },
+  { number: "5000+", label: "Treks Completed", note: "Across India", icon: "5K" },
 ];
 
 export const treks: Trek[] = [

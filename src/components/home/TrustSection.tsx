@@ -48,12 +48,17 @@ const TrustSection = () => {
               transition={{ delay: i * 0.1 }}
               className="rounded-lg bg-primary-foreground/10 p-6 text-center backdrop-blur-sm"
             >
-              <img
-                src={stat.logo}
-                alt={stat.logoAlt}
-                className="mx-auto mb-3 h-10 w-24 object-contain"
-                loading="lazy"
-              />
+              {stat.label === "Certified by Maharashtra Tourism" ? (
+                <img
+                  src="/maharashtra.png"
+                  alt="Maharashtra Tourism"
+                  className="mx-auto mb-3 h-10 w-10 object-contain"
+                />
+              ) : (
+                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground">
+                  <Award className="h-5 w-5" />
+                </div>
+              )}
               <div className="font-heading text-4xl md:text-5xl font-extrabold text-primary-foreground mb-2">
                 {stat.number}
               </div>
