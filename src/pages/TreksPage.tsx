@@ -37,28 +37,28 @@ const seasonFlowCards = [
     id: "monsoon",
     title: "Monsoon Treks",
     months: "June – September",
-    image: "/images/season-logos/monsoon-treks.png",
+    image: "/images/season-logos/monsoon-treks.webp",
     description: "Waterfalls, lush trails, forts, and rain-soaked Sahyadri escapes.",
   },
   {
     id: "winter",
     title: "Winter Treks",
     months: "October – January",
-    image: "/images/season-logos/winter-adventure.png",
+    image: "/images/season-logos/winter-adventure.webp",
     description: "Clear views, cool weather, camping, and comfortable weekend adventures.",
   },
   {
     id: "summer",
     title: "Summer Treks",
     months: "February – May",
-    image: "/images/season-logos/summer-treks.png",
+    image: "/images/season-logos/summer-treks.webp",
     description: "Early-morning trails, coastal experiences, and carefully paced outings.",
   },
   {
     id: "himalayan",
     title: "Himalayan Treks",
     months: "Seasonal departures",
-    image: "/images/hero-mountains.jpg",
+    image: "/images/hero-mountains.webp",
     description: "High-altitude journeys with training, preparation, and trained leaders.",
   },
 ] as const;
@@ -607,7 +607,7 @@ const TreksPage = () => {
                                 src={item.image}
                                 alt={item.title}
                                 onError={(e) => {
-                                  (e.target as HTMLImageElement).src = "/images/hero-mountains.jpg";
+                                  (e.target as HTMLImageElement).src = "/images/hero-mountains.webp";
                                 }}
                                 className="h-20 w-24 shrink-0 rounded-lg object-cover sm:h-22 sm:w-28 shadow-sm group-hover:scale-105 transition-transform duration-300"
                               />
@@ -697,7 +697,7 @@ const TreksPage = () => {
                         src={item.image}
                         alt={item.title}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = "/images/hero-mountains.jpg";
+                          (e.target as HTMLImageElement).src = "/images/hero-mountains.webp";
                         }}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       />

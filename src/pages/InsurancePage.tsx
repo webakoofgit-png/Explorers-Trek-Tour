@@ -37,7 +37,7 @@ const InsurancePage = () => {
 
   return (
     <Layout>
-      <InternalPageHero pageName="Insurance Assistance" eyebrow="Travel Support" title="Travel Insurance Assistance" subtitle="Choose your travel type and send a basic enquiry. Our team will guide you through the next private steps." images={["/images/hero-mountains.jpg", "/images/hero-camping.jpg", "/images/hero-women.jpg"]} />
+      <InternalPageHero pageName="Insurance Assistance" eyebrow="Travel Support" title="Travel Insurance Assistance" subtitle="Choose your travel type and send a basic enquiry. Our team will guide you through the next private steps." images={["/images/hero-mountains.webp", "/images/hero-camping.webp", "/images/hero-women.webp"]} />
 
       <section className="section-padding bg-background">
         <div className="container mx-auto grid gap-8 px-4 lg:grid-cols-[minmax(0,1fr)_22rem]">

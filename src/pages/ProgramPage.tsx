@@ -149,24 +149,24 @@ const pageContent = {
 };
 
 const tourRegions = [
-  { name: "West India", description: "Konkan, Goa, Gujarat and Maharashtra escapes", image: "/images/hero-camping.jpg", types: ["Domestic Tour", "Wildlife Safari", "Honeymoon Tour"] },
-  { name: "South India", description: "Coastal Karnataka, Kerala and Tamil Nadu", image: "/images/hero-mountains.jpg", types: ["Domestic Tour", "Honeymoon Tour", "Wildlife Safari"] },
-  { name: "North India", description: "Himalayas, heritage and pilgrimage routes", image: "/images/manali-camp/manali-camp-1.jpg", types: ["Domestic Tour", "Honeymoon Tour", "Wildlife Safari"] },
-  { name: "East India", description: "Culture, wildlife and scenic landscapes", image: "/images/velas-turtle-festival/velas-turtle-5.jpg", types: ["Domestic Tour", "Wildlife Safari"] },
-  { name: "International", description: "Private holidays across Asia and beyond", image: "/images/hero-women.jpg", types: ["International Tour", "Honeymoon Tour"] },
-  { name: "Cruise", description: "Sea journeys and premium holiday experiences", image: "/images/velas-turtle-festival/velas-turtle-1.jpg", types: ["International Tour", "Honeymoon Tour"] },
+  { name: "West India", description: "Konkan, Goa, Gujarat and Maharashtra escapes", image: "/images/hero-camping.webp", types: ["Domestic Tour", "Wildlife Safari", "Honeymoon Tour"] },
+  { name: "South India", description: "Coastal Karnataka, Kerala and Tamil Nadu", image: "/images/hero-mountains.webp", types: ["Domestic Tour", "Honeymoon Tour", "Wildlife Safari"] },
+  { name: "North India", description: "Himalayas, heritage and pilgrimage routes", image: "/images/manali-camp/manali-camp-1.webp", types: ["Domestic Tour", "Honeymoon Tour", "Wildlife Safari"] },
+  { name: "East India", description: "Culture, wildlife and scenic landscapes", image: "/images/velas-turtle-festival/velas-turtle-5.webp", types: ["Domestic Tour", "Wildlife Safari"] },
+  { name: "International", description: "Private holidays across Asia and beyond", image: "/images/hero-women.webp", types: ["International Tour", "Honeymoon Tour"] },
+  { name: "Cruise", description: "Sea journeys and premium holiday experiences", image: "/images/velas-turtle-festival/velas-turtle-1.webp", types: ["International Tour", "Honeymoon Tour"] },
 ];
 
 const tourPackages = [
-  { title: "Malvan Tarkarli", type: "Domestic Tour", region: "West India", meta: "Konkan Beaches | 3-4 Days", season: "Oct - May", image: "/images/hero-camping.jpg" },
-  { title: "Gokarna-Murudeshwar", type: "Domestic Tour", region: "South India", meta: "Coastal Karnataka | 4 Days", season: "Oct - Feb", image: "/images/hero-mountains.jpg" },
-  { title: "Hampi-Badami", type: "Domestic Tour", region: "South India", meta: "Heritage Circuit | 4-5 Days", season: "Oct - Mar", image: "/images/manali-camp/manali-camp-2.jpg" },
-  { title: "Ujjain-Omkareshwar", type: "Domestic Tour", region: "North India", meta: "Pilgrimage | 3 Days", season: "All Year", image: "/images/velas-turtle-festival/velas-turtle-4.jpg" },
-  { title: "Wildlife Escapes", type: "Wildlife Safari", region: "West India", meta: "Tadoba, Pench & Kanha", season: "Oct - Jun", image: "/images/velas-turtle-festival/velas-turtle-5.jpg" },
-  { title: "Customised International", type: "International Tour", region: "International", meta: "Private Groups", season: "All Year", image: "/images/hero-women.jpg" },
-  { title: "International Honeymoon", type: "Honeymoon Tour", region: "International", meta: "Couples | Custom Dates", season: "All Year", image: "/images/kids-camp/tent-1.jpg" },
-  { title: "Corporate Offsite", type: "Corporate Tour", region: "West India", meta: "Teams | Custom Dates", season: "All Year", image: "/images/kids-camp/rope-activity.jpg" },
-  { title: "School Adventure Tour", type: "School Tour", region: "West India", meta: "Schools | 1-3 Days", season: "Oct - May", image: "/images/kids-camp/archery.jpg" },
+  { title: "Malvan Tarkarli", type: "Domestic Tour", region: "West India", meta: "Konkan Beaches | 3-4 Days", season: "Oct - May", image: "/images/hero-camping.webp" },
+  { title: "Gokarna-Murudeshwar", type: "Domestic Tour", region: "South India", meta: "Coastal Karnataka | 4 Days", season: "Oct - Feb", image: "/images/hero-mountains.webp" },
+  { title: "Hampi-Badami", type: "Domestic Tour", region: "South India", meta: "Heritage Circuit | 4-5 Days", season: "Oct - Mar", image: "/images/manali-camp/manali-camp-2.webp" },
+  { title: "Ujjain-Omkareshwar", type: "Domestic Tour", region: "North India", meta: "Pilgrimage | 3 Days", season: "All Year", image: "/images/velas-turtle-festival/velas-turtle-4.webp" },
+  { title: "Wildlife Escapes", type: "Wildlife Safari", region: "West India", meta: "Tadoba, Pench & Kanha", season: "Oct - Jun", image: "/images/velas-turtle-festival/velas-turtle-5.webp" },
+  { title: "Customised International", type: "International Tour", region: "International", meta: "Private Groups", season: "All Year", image: "/images/hero-women.webp" },
+  { title: "International Honeymoon", type: "Honeymoon Tour", region: "International", meta: "Couples | Custom Dates", season: "All Year", image: "/images/kids-camp/tent-1.webp" },
+  { title: "Corporate Offsite", type: "Corporate Tour", region: "West India", meta: "Teams | Custom Dates", season: "All Year", image: "/images/kids-camp/rope-activity.webp" },
+  { title: "School Adventure Tour", type: "School Tour", region: "West India", meta: "Schools | 1-3 Days", season: "Oct - May", image: "/images/kids-camp/archery.webp" },
 ];
 
 const ProgramPage = () => {
@@ -292,7 +292,7 @@ const ProgramPage = () => {
         eyebrow={content?.eyebrow || program.ageGroup}
         title={content?.heading || program.title}
         subtitle={content?.intro || program.description}
-        images={[program.image, "/images/hero-mountains.jpg", "/images/hero-camping.jpg"]}
+        images={[program.image, "/images/hero-mountains.webp", "/images/hero-camping.webp"]}
       >
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 font-heading text-xs font-bold uppercase tracking-widest text-white/90 backdrop-blur">

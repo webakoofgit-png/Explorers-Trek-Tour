@@ -114,8 +114,10 @@ const FeaturedTreks = () => {
                           <img
                             src={event.image}
                             alt={event.title}
+                            loading="lazy"
+                            decoding="async"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/images/hero-mountains.jpg";
+                              (e.target as HTMLImageElement).src = "/images/hero-mountains.webp";
                             }}
                             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                           />

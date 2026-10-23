@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import InternalPageHero from "@/components/InternalPageHero";
-const heroKids = "/images/kids-camp/archery.jpg";
+const heroKids = "/images/kids-camp/archery.webp";
 
 const AtlasPage = () => {
   return (
@@ -13,7 +13,7 @@ const AtlasPage = () => {
         eyebrow="Training Academy"
         title="ATLAS Academy"
         subtitle="Adventure Training for Leadership, Adventure & Survival"
-        images={[heroKids, "/images/hero-mountains.jpg", "/images/hero-camping.jpg"]}
+        images={[heroKids, "/images/hero-mountains.webp", "/images/hero-camping.webp"]}
       />
 
       <section className="section-padding bg-card">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, MapPin, Phone, Youtube } from "lucide-react";
 import { officialSocialLinks } from "@/data/siteData";
-import footerLogo from "@/assets/Explorer logo.png";
+import footerLogo from "@/assets/Explorer logo.webp";
 
 const quickLinks = [
   ["Home", "/"],

@@ -5,10 +5,10 @@ import { trustStats } from "@/data/siteData";
 import { CheckCircle2, ShieldCheck, Users, Leaf } from "lucide-react";
 import InternalPageHero from "@/components/InternalPageHero";
 
-const heroMountains = "/images/hero-mountains.jpg";
-const heroWomen = "/images/hero-women.jpg";
-const heroCamping = "/images/hero-camping.jpg";
-const heroKids = "/images/kids-camp/tent-1.jpg";
+const heroMountains = "/images/hero-mountains.webp";
+const heroWomen = "/images/hero-women.webp";
+const heroCamping = "/images/hero-camping.webp";
+const heroKids = "/images/kids-camp/tent-1.webp";
 
 const promiseSlides = [
   {
@@ -140,7 +140,7 @@ const AboutPage = () => {
                 >
                   {stat.label === "Certified by Maharashtra Tourism" ? (
                     <img
-                      src="/maharashtra.png"
+                      src="/maharashtra.webp"
                       alt="Maharashtra Tourism"
                       className="mx-auto mb-3 h-10 w-10 object-contain"
                     />

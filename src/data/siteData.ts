@@ -1,7 +1,7 @@
-export const heroMountains = "/images/hero-mountains.jpg";
-export const heroCamping = "/images/hero-camping.jpg";
-export const heroKids = "/images/kids-camp/tent-1.jpg";
-export const heroWomen = "/images/hero-women.jpg";
+export const heroMountains = "/images/hero-mountains.webp";
+export const heroCamping = "/images/hero-camping.webp";
+export const heroKids = "/images/kids-camp/tent-1.webp";
+export const heroWomen = "/images/hero-women.webp";
 
 export type TourType = "Weekend Trek" | "Himalayan Trek" | "Camping" | "Tour" | "Wildlife Tour" | "Speciality Tour";
 
@@ -49,13 +49,13 @@ export const brand = {
 
 export const heroSlides = [
   { image: heroMountains, title: "Weekend Treks", subtitle: "Guided Sahyadri escapes from Pune and Mumbai.", link: "/treks?type=Weekend+Trek" },
-  { image: "/images/kids-camp/tent-1.jpg", title: "Junior Explorers", subtitle: "Safe outdoor learning & adventure camps for ages 8-16.", link: "/programs/junior-explorers" },
+  { image: "/images/kids-camp/tent-1.webp", title: "Junior Explorers", subtitle: "Safe outdoor learning & adventure camps for ages 8-16.", link: "/programs/junior-explorers" },
   { image: heroWomen, title: "Lady Explorers", subtitle: "Women-only treks, camps, tours, and friendships.", link: "/programs/lady-explorers" },
   { image: heroMountains, title: "Silver Explorers", subtitle: "Comfortable, carefully paced trips for 40+ explorers.", link: "/programs/silver-explorers" },
   { image: heroCamping, title: "Camping", subtitle: "Lake, forest, and mountain stays under open skies.", link: "/treks?type=Camping" },
   { image: heroWomen, title: "Himalayan Treks", subtitle: "High-altitude journeys led by trained teams.", link: "/treks?type=Himalayan+Trek" },
   { image: heroCamping, title: "Customise Your Tour", subtitle: "Private domestic, international, school, and corporate plans.", link: "/programs/customised-packages" },
-  { image: "/images/kids-camp/archery.jpg", title: "Atlas", subtitle: "Adventure leadership training academy by Explorers.", link: "/atlas" },
+  { image: "/images/kids-camp/archery.webp", title: "Atlas", subtitle: "Adventure leadership training academy by Explorers.", link: "/atlas" },
   { image: heroMountains, title: "Jungle Safari", subtitle: "Wildlife tours across India's iconic national parks.", link: "/programs/wildlife-tours" },
 ];
 
@@ -94,7 +94,7 @@ export const treks: Trek[] = [
     ageGroup: "8-16 years",
     price: 3499,
     originalPrice: 4200,
-    image: "/images/kids-camp/tent-1.jpg",
+    image: "/images/kids-camp/tent-1.webp",
     tag: "Kids Camp Special",
     reporting: "Pune to Pune",
     description: "3 days of archery, air rifle shooting, high rope obstacle course, tent pitching, traditional games, and night star gazing.",
@@ -117,14 +117,14 @@ export const treks: Trek[] = [
     month: ["May", "Jun", "Oct", "Nov", "Dec"],
     tourType: "Speciality Tour",
     gallery: [
-      "/images/kids-camp/tent-1.jpg",
-      "/images/kids-camp/archery.jpg",
-      "/images/kids-camp/rifle-shooting.jpg",
-      "/images/kids-camp/rope-activity.jpg",
-      "/images/kids-camp/star-gazing.jpg",
-      "/images/kids-camp/old-indian-games.jpg",
-      "/images/kids-camp/omkar.jpg",
-      "/images/kids-camp/kids-camp-1.jpg"
+      "/images/kids-camp/tent-1.webp",
+      "/images/kids-camp/archery.webp",
+      "/images/kids-camp/rifle-shooting.webp",
+      "/images/kids-camp/rope-activity.webp",
+      "/images/kids-camp/star-gazing.webp",
+      "/images/kids-camp/old-indian-games.webp",
+      "/images/kids-camp/omkar.webp",
+      "/images/kids-camp/kids-camp-1.webp"
     ],
     batches: [
       { label: "Batch 1 (Summer Special)", date: "15 May 2026", price: 3499, seats: "Filling Fast" },
@@ -145,7 +145,7 @@ export const treks: Trek[] = [
     ageGroup: "All Age Groups (5-70 years)",
     price: 2999,
     originalPrice: 3500,
-    image: "/images/velas-turtle-festival/velas-turtle-5.jpg",
+    image: "/images/velas-turtle-festival/velas-turtle-5.webp",
     tag: "Eco Wildlife Special",
     reporting: "Pune & Mumbai",
     description: "Witness tiny Olive Ridley baby turtles hatching & taking their first steps into the Arabian Sea at Velas Beach, along with Harihareshwar temple & Bankot Fort.",
@@ -167,15 +167,15 @@ export const treks: Trek[] = [
     month: ["Feb", "Mar", "Apr"],
     tourType: "Speciality Tour",
     gallery: [
-      "/images/velas-turtle-festival/velas-turtle-5.jpg",
-      "/images/velas-turtle-festival/velas-turtle-4.jpg",
-      "/images/velas-turtle-festival/velas-turtle-1.jpg",
-      "/images/velas-turtle-festival/velas-turtle-2.jpg",
-      "/images/velas-turtle-festival/velas-turtle-3.jpg",
-      "/images/velas-turtle-festival/velas-turtle-6.png",
-      "/images/velas-turtle-festival/velas-turtle-7.png",
-      "/images/velas-turtle-festival/velas-turtle-8.jpeg",
-      "/images/velas-turtle-festival/velas-turtle-9.jpeg"
+      "/images/velas-turtle-festival/velas-turtle-5.webp",
+      "/images/velas-turtle-festival/velas-turtle-4.webp",
+      "/images/velas-turtle-festival/velas-turtle-1.webp",
+      "/images/velas-turtle-festival/velas-turtle-2.webp",
+      "/images/velas-turtle-festival/velas-turtle-3.webp",
+      "/images/velas-turtle-festival/velas-turtle-6.webp",
+      "/images/velas-turtle-festival/velas-turtle-7.webp",
+      "/images/velas-turtle-festival/velas-turtle-8.webp",
+      "/images/velas-turtle-festival/velas-turtle-9.webp"
     ],
     batches: [
       { label: "Batch 1 (Hatching Season)", date: "13 February 2027", price: 2999, seats: "Filling Fast" },
@@ -196,7 +196,7 @@ export const treks: Trek[] = [
     ageGroup: "10-16 years",
     price: 2799,
     originalPrice: 3300,
-    image: "/images/kids-camp/rappelling-1.jpg",
+    image: "/images/kids-camp/rappelling-1.webp",
     tag: "Adventure Thrill",
     reporting: "Pune to Pune",
     description: "Supervised waterfall rappelling, stream crossing, fort trekking, and nature trails designed for young adventurers.",
@@ -217,13 +217,13 @@ export const treks: Trek[] = [
     month: ["Jun", "Jul", "Aug", "Sep", "Oct"],
     tourType: "Speciality Tour",
     gallery: [
-      "/images/kids-camp/rappelling-1.jpg",
-      "/images/kids-camp/rappelling-2.jpg",
-      "/images/kids-camp/trek-1.jpg",
-      "/images/kids-camp/trek-3.jpg",
-      "/images/kids-camp/tent-2.jpg",
-      "/images/kids-camp/trek-7.jpg",
-      "/images/kids-camp/kids-camp-2.jpg"
+      "/images/kids-camp/rappelling-1.webp",
+      "/images/kids-camp/rappelling-2.webp",
+      "/images/kids-camp/trek-1.webp",
+      "/images/kids-camp/trek-3.webp",
+      "/images/kids-camp/tent-2.webp",
+      "/images/kids-camp/trek-7.webp",
+      "/images/kids-camp/kids-camp-2.webp"
     ],
     batches: [
       { label: "Batch 1", date: "20 June 2026", price: 2799, seats: "Filling Fast" },
@@ -565,7 +565,7 @@ export const treks: Trek[] = [
     ageGroup: "10-22 years & Families",
     price: 8999,
     originalPrice: 11500,
-    image: "/images/manali-camp/manali-camp-1.jpg",
+    image: "/images/manali-camp/manali-camp-1.webp",
     tag: "Himalayan Camp Special",
     reporting: "Manali to Manali",
     description: "6 days of Himalayan wilderness camping, Solang valley adventure sports, pine forest trekking, river crossing, and night campfires in Manali.",
@@ -591,13 +591,13 @@ export const treks: Trek[] = [
     month: ["Apr", "May", "Jun", "Jul", "Oct"],
     tourType: "Himalayan Trek",
     gallery: [
-      "/images/manali-camp/manali-camp-1.jpg",
-      "/images/manali-camp/manali-camp-2.jpg",
-      "/images/manali-camp/manali-camp-3.jpg",
-      "/images/manali-camp/manali-camp-4.jpg",
-      "/images/manali-camp/manali-camp-5.jpg",
-      "/images/manali-camp/manali-camp-6.jpg",
-      "/images/manali-camp/manali-camp-7.jpg"
+      "/images/manali-camp/manali-camp-1.webp",
+      "/images/manali-camp/manali-camp-2.webp",
+      "/images/manali-camp/manali-camp-3.webp",
+      "/images/manali-camp/manali-camp-4.webp",
+      "/images/manali-camp/manali-camp-5.webp",
+      "/images/manali-camp/manali-camp-6.webp",
+      "/images/manali-camp/manali-camp-7.webp"
     ],
     batches: [
       { label: "Batch 1 (Summer Camp)", date: "15 May 2026", price: 8999, seats: "Filling Fast" },
@@ -617,7 +617,7 @@ export const treks: Trek[] = [
     ageGroup: "12-60",
     price: 7499,
     originalPrice: 9499,
-    image: "/images/manali-camp/manali-camp-3.jpg",
+    image: "/images/manali-camp/manali-camp-3.webp",
     tag: "High Alpine Lake",
     reporting: "Manali to Manali",
     description: "Trek to the holy alpine lake at 14,000 ft with emerald green meadows.",
@@ -635,10 +635,10 @@ export const treks: Trek[] = [
     month: ["Jun", "Jul", "Aug", "Sep", "Oct", "May"],
     tourType: "Himalayan Trek",
     gallery: [
-      "/images/manali-camp/manali-camp-3.jpg",
-      "/images/manali-camp/manali-camp-4.jpg",
-      "/images/manali-camp/manali-camp-5.jpg",
-      "/images/manali-camp/manali-camp-7.jpg"
+      "/images/manali-camp/manali-camp-3.webp",
+      "/images/manali-camp/manali-camp-4.webp",
+      "/images/manali-camp/manali-camp-5.webp",
+      "/images/manali-camp/manali-camp-7.webp"
     ],
     batches: [
       { label: "Batch 1", date: "10 June 2026", price: 7499, seats: "Open" },
@@ -664,7 +664,7 @@ export const treks: Trek[] = [
     ageGroup: "14-55",
     price: 8499,
     originalPrice: 10499,
-    image: "/images/manali-camp/manali-camp-5.jpg",
+    image: "/images/manali-camp/manali-camp-5.webp",
     tag: "Cross-Pass Trek",
     reporting: "Manali to Manali",
     description: "Cross from lush green Kullu valley into the stark cold desert of Spiti with Chandratal Lake visit.",
@@ -682,10 +682,10 @@ export const treks: Trek[] = [
     month: ["Jun", "Jul", "Aug", "Sep"],
     tourType: "Himalayan Trek",
     gallery: [
-      "/images/manali-camp/manali-camp-5.jpg",
-      "/images/manali-camp/manali-camp-2.jpg",
-      "/images/manali-camp/manali-camp-6.jpg",
-      "/images/manali-camp/manali-camp-1.jpg"
+      "/images/manali-camp/manali-camp-5.webp",
+      "/images/manali-camp/manali-camp-2.webp",
+      "/images/manali-camp/manali-camp-6.webp",
+      "/images/manali-camp/manali-camp-1.webp"
     ],
     batches: [
       { label: "Batch 1", date: "15 June 2026", price: 8499, seats: "Filling Fast" },

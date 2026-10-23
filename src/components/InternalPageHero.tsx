@@ -23,7 +23,7 @@ const InternalPageHero = ({
   showSearch = true,
 }: InternalPageHeroProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
-  const safeImages = images.length ? images : ["/images/hero-mountains.jpg"];
+  const safeImages = images.length ? images : ["/images/hero-mountains.webp"];
 
   useEffect(() => {
     setActiveSlide(0);
@@ -50,7 +50,7 @@ const InternalPageHero = ({
             index === activeSlide ? "opacity-100" : "opacity-0"
           }`}
           onError={(event) => {
-            (event.currentTarget as HTMLImageElement).src = "/images/hero-mountains.jpg";
+            (event.currentTarget as HTMLImageElement).src = "/images/hero-mountains.webp";
           }}
         />
       ))}

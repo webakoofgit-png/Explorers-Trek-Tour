@@ -124,7 +124,7 @@ export const KidsCampGallery: React.FC<{ limit?: number; showFilter?: boolean }>
                   alt={image.title}
                   loading="lazy"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/images/hero-mountains.jpg";
+                    (e.target as HTMLImageElement).src = "/images/hero-mountains.webp";
                   }}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -193,7 +193,7 @@ export const KidsCampGallery: React.FC<{ limit?: number; showFilter?: boolean }>
                   src={activeImage.src}
                   alt={activeImage.title}
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/images/hero-mountains.jpg";
+                    (e.target as HTMLImageElement).src = "/images/hero-mountains.webp";
                   }}
                   className="max-h-[75vh] w-auto object-contain mx-auto"
                 />

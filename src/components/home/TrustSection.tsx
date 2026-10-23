@@ -50,7 +50,7 @@ const TrustSection = () => {
             >
               {stat.label === "Certified by Maharashtra Tourism" ? (
                 <img
-                  src="/maharashtra.png"
+                  src="/maharashtra.webp"
                   alt="Maharashtra Tourism"
                   className="mx-auto mb-3 h-10 w-10 object-contain"
                 />

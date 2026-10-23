@@ -33,6 +33,8 @@ const CategoriesSection = () => {
                   <img
                     src={category.image}
                     alt={category.name}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />

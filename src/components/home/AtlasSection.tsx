@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-const heroKids = "/images/kids-camp/archery.jpg";
+const heroKids = "/images/kids-camp/archery.webp";
 
 const AtlasSection = () => {
   return (

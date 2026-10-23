@@ -33,7 +33,7 @@ const ContactPage = () => {
           eyebrow="Contact Explorers"
           title="We Are Here to Help"
           subtitle="Please fill in the form to raise your query. Our team will be happy to help you plan your next experience."
-          images={["/images/hero-camping.jpg", "/images/hero-mountains.jpg", "/images/hero-women.jpg"]}
+          images={["/images/hero-camping.webp", "/images/hero-mountains.webp", "/images/hero-women.webp"]}
           showSearch={false}
         />
 

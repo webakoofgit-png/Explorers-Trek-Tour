@@ -128,10 +128,10 @@ const brandLinks = [
 ] as const;
 
 const affiliationLogos = [
-  { label: "ATOAI India", src: "/award%20logos/ATOAI%20India.png" },
-  { label: "MSME India", src: "/award%20logos/MSME%20India.jpeg" },
-  { label: "TAAP Pune", src: "/award%20logos/TAAP%20Pune.jpeg" },
-  { label: "Maharashtra Tourism", src: "/maharashtra.png" },
+  { label: "ATOAI India", src: "/award%20logos/ATOAI%20India.webp" },
+  { label: "MSME India", src: "/award%20logos/MSME%20India.webp" },
+  { label: "TAAP Pune", src: "/award%20logos/TAAP%20Pune.webp" },
+  { label: "Maharashtra Tourism", src: "/maharashtra.webp" },
 ] as const;
 
 const TrekInternalPage = ({ trek }: TrekInternalPageProps) => {

@@ -26,7 +26,13 @@ const HeroSection = () => {
           transition={{ duration: 0.75 }}
           className="absolute inset-0"
         >
-          <img src={slide.image} alt={slide.title} className="h-full w-full object-cover" />
+          <img
+            src={slide.image}
+            alt={slide.title}
+            decoding="async"
+            fetchPriority="high"
+            className="h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/78" />
         </motion.div>
       </AnimatePresence>

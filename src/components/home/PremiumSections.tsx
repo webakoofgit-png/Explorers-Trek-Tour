@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, ChevronLeft, ChevronRight, MessageCircle, Mountain, ShieldCheck, Star } from "lucide-react";
 import { awards, googleReviews, socialChannels, trustStats } from "@/data/siteData";
-import yearsExperienceLogo from "@/assets/Explorer logo (1).png";
+import yearsExperienceLogo from "@/assets/Explorer logo (1).webp";
 import {
   getWhatsAppGroupLink,
   SITE_SETTINGS_UPDATED_EVENT,
@@ -70,7 +70,7 @@ export const StatsSection = () => (
                   />
                 ) : stat.label === "Certified by Maharashtra Tourism" ? (
                   <img
-                    src="/maharashtra.png"
+                    src="/maharashtra.webp"
                     alt="Maharashtra Tourism"
                     className="mx-auto mb-2 h-10 w-10 object-contain"
                   />
@@ -175,13 +175,13 @@ const TemporaryAwardLogo = ({ award }: { award: string }) => {
 };
 
 const suppliedAwardLogos = [
-  { name: "Bhartiya Paryatan Coop Society", label: "Bhartiya Paryatan", tag: "National Co-Op", src: "/award%20logos/Bhartiya%20Paryatan.png" },
-  { name: "ATAOI", label: "ATOAI India", tag: "Adventure Association", src: "/award%20logos/ATOAI%20India.png" },
-  { name: "MSME", label: "MSME India", tag: "Government Recognition", src: "/award%20logos/MSME%20India.jpeg" },
-  { name: "TAAP", label: "TAAP Pune", tag: "Travel Association", src: "/award%20logos/TAAP%20Pune.jpeg" },
-  { name: "IIHM Hospitality", label: "IIHM Hospitality", tag: "Academic Affiliation", src: "/award%20logos/IIHM%20Hospitality.jpeg" },
-  { name: "Indian Institute of Hotel Management", label: "Indian Institute of Hotel Management", tag: "Academic Affiliation", src: "/award%20logos/IIhm_LOGO.png" },
-  { name: "Institute of Hospitality", label: "Institute of Hospitality", tag: "Global Affiliation", src: "/award%20logos/IHC%20London.jpeg" },
+  { name: "Bhartiya Paryatan Coop Society", label: "Bhartiya Paryatan", tag: "National Co-Op", src: "/award%20logos/Bhartiya%20Paryatan.webp" },
+  { name: "ATAOI", label: "ATOAI India", tag: "Adventure Association", src: "/award%20logos/ATOAI%20India.webp" },
+  { name: "MSME", label: "MSME India", tag: "Government Recognition", src: "/award%20logos/MSME%20India.webp" },
+  { name: "TAAP", label: "TAAP Pune", tag: "Travel Association", src: "/award%20logos/TAAP%20Pune.webp" },
+  { name: "IIHM Hospitality", label: "IIHM Hospitality", tag: "Academic Affiliation", src: "/award%20logos/IIHM%20Hospitality.webp" },
+  { name: "Indian Institute of Hotel Management", label: "Indian Institute of Hotel Management", tag: "Academic Affiliation", src: "/award%20logos/IIhm_LOGO.webp" },
+  { name: "Institute of Hospitality", label: "Institute of Hospitality", tag: "Global Affiliation", src: "/award%20logos/IHC%20London.webp" },
 ];
 
 const suppliedAwardNames = new Set(["Maharashtra Tourism", "MSME", "TAAP", "IIHM", "IHC London", "Bhartiya Paryatan Coop Society", "ATAOI"]);
