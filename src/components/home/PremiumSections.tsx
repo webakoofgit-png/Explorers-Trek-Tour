@@ -125,6 +125,35 @@ const awardEmblems: Record<string, { label: string; tag: string }> = {
   "IHC London": { label: "IHC London", tag: "Global Affiliation" },
 };
 
+const TrophyBadge = () => (
+  <div className="mb-3 flex h-20 w-20 items-center justify-center rounded-full border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-amber-100 shadow-sm">
+    <svg
+      viewBox="0 0 96 96"
+      role="img"
+      aria-label="Gold trophy"
+      className="h-14 w-14 drop-shadow-[0_4px_5px_rgba(180,110,0,0.25)]"
+    >
+      <path
+        d="M25 20h46v13c0 17.6-9.8 31.2-23 31.2S25 50.6 25 33V20Z"
+        fill="#F5B700"
+      />
+      <path
+        d="M25 27H15v6c0 12.5 7.5 21 18.5 22.5M71 27h10v6c0 12.5-7.5 21-18.5 22.5"
+        fill="none"
+        stroke="#D89000"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="m48 28 3.6 7.2 8 .9-5.8 5.5 1.5 7.8L48 45.6l-7.3 3.8 1.5-7.8-5.8-5.5 8-.9L48 28Z" fill="#FFF3B0" />
+      <path d="M43 62h10v10H43z" fill="#D89000" />
+      <path d="M35 71h26v8H35z" rx="4" fill="#F5B700" />
+      <path d="M29 78h38a5 5 0 0 1 5 5v2H24v-2a5 5 0 0 1 5-5Z" fill="#B96F00" />
+      <path d="M31 22h34v6H31z" rx="3" fill="#FFD65A" />
+    </svg>
+  </div>
+);
+
 const TemporaryAwardLogo = ({ award }: { award: string }) => {
   if (award === "NIDHI") {
     return (
@@ -206,6 +235,7 @@ export const AwardsSection = () => (
           const officialLogo = "src" in item ? item.src : undefined;
           const label = "label" in item ? item.label : info.label;
           const tag = "tag" in item ? item.tag : info.tag;
+          const usesTrophy = award === "TOI Award" || award === "Paryatan Committee";
 
           return (
             <div
@@ -220,6 +250,8 @@ export const AwardsSection = () => (
                 <div className="mb-2 flex min-h-20 w-full items-center justify-center rounded-lg bg-white px-2 py-1">
                   {temporaryLogo}
                 </div>
+              ) : usesTrophy ? (
+                <TrophyBadge />
               ) : (
                 <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-heading font-black text-xs">
                   <Award className="h-5 w-5 text-accent" />

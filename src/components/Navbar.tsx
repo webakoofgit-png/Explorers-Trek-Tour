@@ -40,9 +40,9 @@ const navLinks = [
   },
   {
     label: "Speciality Tours",
-    href: "/programs/lady-explorers",
+    href: "/programs/women-on-trails",
     children: programDirectory
-      .filter((item) => ["Junior Explorers", "Lady Explorers", "Silver Explorers", "Explorers on Wheels"].includes(item.title))
+      .filter((item) => ["Junior Explorers", "Women on Trails", "Silver Explorers", "Explorers on Wheels"].includes(item.title))
       .map((item) => ({ label: item.title, href: item.link })),
   },
   { label: "Camping", href: "/treks?type=Camping" },

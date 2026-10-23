@@ -62,13 +62,13 @@ const pageContent = {
     ],
     process: ["Choose tour type", "Share class, group size and dates", "Receive itinerary and costing", "Confirm school details", "Travel safely with Explorers"],
   },
-  "lady-explorers": {
+  "women-on-trails": {
     eyebrow: "Speciality Tours",
     heading: "Curated Experiences For Every Explorer",
     intro:
-      "Speciality Tours are designed around age, comfort, confidence, community and style of travel: Junior Explorers, Lady Explorers, Silver Explorers and Explorers on Wheels.",
+      "Speciality Tours are designed around age, comfort, confidence, community and style of travel: Junior Explorers, Women on Trails, Silver Explorers and Explorers on Wheels.",
     enquiryTitle: "Join a Speciality Batch",
-    filters: ["Lady Explorers", "Junior Explorers", "Silver Explorers", "Explorers on Wheels", "Mountain Run", "Camping"],
+    filters: ["Women on Trails", "Junior Explorers", "Silver Explorers", "Explorers on Wheels", "Mountain Run", "Camping"],
     highlights: [
       "Women-only treks and tours with trusted group support",
       "Junior Explorers programs for 8-16 years",
@@ -78,7 +78,7 @@ const pageContent = {
       "Safe, friendly batches with clear communication",
     ],
     cards: [
-      { title: "Lady Explorers", meta: "Women special", desc: "Treks, tours and camps planned for comfort, confidence and community." },
+      { title: "Women on Trails", meta: "Women special", desc: "Treks, tours and camps planned for comfort, confidence and community." },
       { title: "Junior Explorers", meta: "8-16 years", desc: "Outdoor learning, camps, discipline, nature education and adventure activities." },
       { title: "Silver Explorers", meta: "40+ years", desc: "Comfortable pace, thoughtful itineraries and carefully managed travel plans." },
       { title: "Explorers on Wheels", meta: "Bike | Bicycle | Caravan", desc: "Road journeys, cycling plans and scenic routes for wheels-based adventures." },

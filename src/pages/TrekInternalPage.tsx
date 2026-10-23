@@ -121,7 +121,7 @@ const policies = [
 
 const brandLinks = [
   ["Junior Explorers", "/programs/junior-explorers"],
-  ["Lady Explorers", "/programs/lady-explorers"],
+  ["Women on Trails", "/programs/women-on-trails"],
   ["Silver Explorers", "/programs/silver-explorers"],
   ["Explorers on Wheels", "/programs/on-wheels"],
   ["ATLAS Academy", "/atlas"],

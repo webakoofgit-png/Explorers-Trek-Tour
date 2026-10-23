@@ -50,7 +50,7 @@ export const brand = {
 export const heroSlides = [
   { image: heroMountains, title: "Weekend Treks", subtitle: "Guided Sahyadri escapes from Pune and Mumbai.", link: "/treks?type=Weekend+Trek" },
   { image: "/images/kids-camp/tent-1.webp", title: "Junior Explorers", subtitle: "Safe outdoor learning & adventure camps for ages 8-16.", link: "/programs/junior-explorers" },
-  { image: heroWomen, title: "Lady Explorers", subtitle: "Women-only treks, camps, tours, and friendships.", link: "/programs/lady-explorers" },
+  { image: heroWomen, title: "Women on Trails", subtitle: "Women-only treks, camps, tours, and friendships.", link: "/programs/women-on-trails" },
   { image: heroMountains, title: "Silver Explorers", subtitle: "Comfortable, carefully paced trips for 40+ explorers.", link: "/programs/silver-explorers" },
   { image: heroCamping, title: "Camping", subtitle: "Lake, forest, and mountain stays under open skies.", link: "/treks?type=Camping" },
   { image: heroWomen, title: "Himalayan Treks", subtitle: "High-altitude journeys led by trained teams.", link: "/treks?type=Himalayan+Trek" },
@@ -64,7 +64,7 @@ export const globalSchedule = [
   { date: "10 June 2026", title: "Devkund Waterfall", type: "Weekend Trek", month: "June", year: "2026" },
   { date: "15 July 2026", title: "Madheghat Waterfall Rappelling", type: "Weekend Trek", month: "July", year: "2026" },
   { date: "25 August 2026", title: "Pavna Camping", type: "Camping", month: "August", year: "2026" },
-  { date: "12 September 2026", title: "Lady Explorers Monsoon Special", type: "Speciality Tour", month: "September", year: "2026" },
+  { date: "12 September 2026", title: "Women on Trails Monsoon Special", type: "Speciality Tour", month: "September", year: "2026" },
   { date: "18 October 2026", title: "Himalayan Base Camp Briefing", type: "Himalayan Trek", month: "October", year: "2026" },
   { date: "01 January 2027", title: "Silver Explorers New Year Trail", type: "Speciality Tour", month: "January", year: "2027" },
 ];
@@ -704,7 +704,7 @@ export const treks: Trek[] = [
 const categorySubtitles: Record<string, string> = {
   "Weekend Treks": "Guided Sahyadri Fort & Forest Treks",
   "Junior Explorers": "Specially Designed for aged 8 to 16 years",
-  "Lady Explorers": "Women Special - Treks, Camps & Tours",
+  "Women on Trails": "Women Special - Treks, Camps & Tours",
   "Silver Explorers": "Specially Curated for aged 40+ years",
   "Explorers on Wheels": "Bicycle, Bike & Caravan Expeditions",
   "Camping": "Lakeside & Mountain Camping Under Open Skies",
@@ -724,7 +724,7 @@ const categorySubtitles: Record<string, string> = {
 export const experienceCategories = [
   "Weekend Treks",
   "Junior Explorers",
-  "Lady Explorers",
+  "Women on Trails",
   "Silver Explorers",
   "Explorers on Wheels",
   "Camping",
@@ -750,8 +750,8 @@ export const experienceCategories = [
     ? `/treks?type=${encodeURIComponent(name === "Weekend Treks" ? "Weekend Trek" : name === "Himalayan Treks" ? "Himalayan Trek" : "Camping")}`
     : name.includes("Junior")
     ? "/programs/junior-explorers"
-    : name.includes("Lady")
-    ? "/programs/lady-explorers"
+    : name.includes("Women")
+    ? "/programs/women-on-trails"
     : name.includes("Silver")
     ? "/programs/silver-explorers"
     : name.includes("Wheels")
@@ -929,7 +929,7 @@ export const adminModules = [
 
 export const programDirectory = [
   { title: "Junior Explorers", subtitle: "8-16 years adventure camps and outdoor learning", link: "/programs/junior-explorers" },
-  { title: "Lady Explorers", subtitle: "Women special treks, camps and tours", link: "/programs/lady-explorers" },
+  { title: "Women on Trails", subtitle: "Women special treks, camps and tours", link: "/programs/women-on-trails" },
   { title: "Silver Explorers", subtitle: "40+ years comfortable treks and tours", link: "/programs/silver-explorers" },
   { title: "Explorers on Wheels", subtitle: "Bicycle, bike, caravan and road trips", link: "/programs/on-wheels" },
   { title: "Camping", subtitle: "Pavna, Panshet, Madheghat and Malshej stays", link: "/treks?type=Camping" },
@@ -962,7 +962,7 @@ const programDetails: Record<string, { description: string; ageGroup: string }> 
     ageGroup: "8-16 years",
     description: "Specially designed for ages 8 to 16 years with outdoor learning, games, trekking basics, camping skills, and confidence-building activities.",
   },
-  "lady-explorers": {
+  "women-on-trails": {
     ageGroup: "Women special",
     description: "Women-only treks, tours, and camping batches with trusted planning, comfort, and friendly group support.",
   },

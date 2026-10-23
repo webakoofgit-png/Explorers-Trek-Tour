@@ -8,7 +8,7 @@ const quickLinks = [
   ["About Us", "/about"],
   ["Treks", "/treks"],
   ["Tours", "/programs/group-tours"],
-  ["Speciality Tours", "/programs/lady-explorers"],
+  ["Speciality Tours", "/programs/women-on-trails"],
   ["Camping", "/treks?type=Camping"],
   ["Atlas", "/atlas"],
   ["Contact", "/contact"],
@@ -37,7 +37,7 @@ const footerGroups = [
     links: [
       ["Upcoming Events", "/treks"],
       ["Junior Explorers", "/programs/junior-explorers"],
-      ["Lady Explorers", "/programs/lady-explorers"],
+      ["Women on Trails", "/programs/women-on-trails"],
       ["Silver Explorers", "/programs/silver-explorers"],
       ["Jungle Safari", "/programs/wildlife-tours"],
       ["ATLAS Academy", "/atlas"],

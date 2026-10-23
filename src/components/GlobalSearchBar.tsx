@@ -30,7 +30,7 @@ const categoriesList = [
   "Upcoming Events",
   "Weekend Treks",
   "Junior Explorers",
-  "Lady Explorers",
+  "Women on Trails",
   "Silver Explorers",
   "Explorers on Wheels",
   "Camping",
