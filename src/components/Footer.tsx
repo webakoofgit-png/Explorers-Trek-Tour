@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, MapPin, Phone, Youtube } from "lucide-react";
 import { officialSocialLinks } from "@/data/siteData";
+import footerLogo from "@/assets/Explorer logo.png";
 
 const quickLinks = [
   ["Home", "/"],
@@ -68,11 +69,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <div className="space-y-5">
             <div>
-              <img
-                src="/Header_Logo_Reverse_400x75px.png"
-                alt="Explorers Treks & Tours"
-                className="mb-3 h-auto w-full max-w-[18rem] object-contain object-left"
-              />
+              <div className="relative mb-3 h-20 w-full max-w-[20rem] overflow-hidden" aria-label="Explorers Treks & Tours">
+                <img
+                  src={footerLogo}
+                  alt="Explorers Treks & Tours"
+                  className="absolute left-1/2 top-1/2 w-[110%] min-w-[18rem] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                />
+              </div>
               {/* Item 24: Below logo keep TREKS TOURS TRAINING line */}
               <p className="mb-1 font-heading text-sm font-black uppercase tracking-[0.22em] text-white">
                 TREKS • TOURS • TRAINING
@@ -171,9 +174,18 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-6 md:flex-row">
-          <p className="text-xs font-semibold text-white/75">
-            © {new Date().getFullYear()} Explorers Treks & Tours. All rights reserved.
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs font-semibold text-white/75 md:justify-start">
+            <span>© {new Date().getFullYear()} Explorers Treks & Tours. All rights reserved.</span>
+            <span aria-hidden="true">|</span>
+            <a
+              href="https://webakoof.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white transition-colors hover:text-highlight"
+            >
+              Designed by Webakoof
+            </a>
+          </div>
           <div className="flex flex-wrap justify-center gap-3">
             {socialLinks.map(([label, href, Icon]) => (
               <a

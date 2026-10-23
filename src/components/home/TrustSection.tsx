@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Award, Facebook, Instagram, Star, Youtube } from "lucide-react";
-import { trustStats } from "@/data/siteData";
+import { officialSocialLinks, trustStats } from "@/data/siteData";
 
 const socialLinks = [
-  { label: "Live Instagram", href: "https://www.instagram.com/explorers_group/", icon: Instagram },
-  { label: "Facebook Page Live", href: "https://www.facebook.com/Explorers.DareToDiscover/", icon: Facebook },
+  { label: "Live Instagram", href: officialSocialLinks.instagram, icon: Instagram },
+  { label: "Facebook Page Live", href: officialSocialLinks.facebook, icon: Facebook },
   { label: "YouTube", href: "https://www.youtube.com/channel/UC5ffVZUnp2p2Bi6VqNyMRcw", icon: Youtube },
   {
     label: "Live Google Reviews",

@@ -3,7 +3,8 @@ import { CalendarDays, Search, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { globalSchedule } from "@/data/siteData";
+import { treks } from "@/data/siteData";
+import { isTrekDatePast, sortByUpcomingDate } from "@/lib/trekDates";
 
 interface GlobalSearchBarProps {
   reserveTop?: boolean;
@@ -46,13 +47,30 @@ const categoriesList = [
   "ATLAS Training Academy",
 ];
 
+const schedule = sortByUpcomingDate(
+  treks.flatMap((trek) =>
+    trek.batches.map((batch) => {
+      const [, month = "", year = ""] = batch.date.split(" ");
+      return {
+        date: batch.date,
+        title: trek.title,
+        type: trek.tourType,
+        month,
+        year,
+        trekId: trek.id,
+        searchText: `${trek.title} ${trek.location} ${trek.tourType} ${trek.tag} ${trek.description} ${batch.date}`.toLowerCase(),
+      };
+    }),
+  ).filter((item) => !isTrekDatePast(item.date)),
+);
+
 const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
   const [selectedCategory, setSelectedCategory] = useState("Upcoming Events");
   const [selectedMonth, setSelectedMonth] = useState("All Months");
   const [searchQuery, setSearchQuery] = useState("");
 
   const visibleTypes = useMemo(() => {
-    return globalSchedule.filter((item) => {
+    return schedule.filter((item) => {
       // Category Filter
       let matchesCategory = true;
       if (selectedCategory !== "Upcoming Events") {
@@ -63,7 +81,7 @@ const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
         } else if (selectedCategory === "Camping") {
           matchesCategory = item.type === "Camping";
         } else {
-          const text = `${item.title} ${item.type}`.toLowerCase();
+          const text = item.searchText;
           matchesCategory = text.includes(selectedCategory.toLowerCase());
         }
       }
@@ -79,10 +97,7 @@ const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
         matchesQuery =
-          item.title.toLowerCase().includes(query) ||
-          item.type.toLowerCase().includes(query) ||
-          item.month.toLowerCase().includes(query) ||
-          item.date.toLowerCase().includes(query);
+          item.searchText.includes(query);
       }
 
       return matchesCategory && matchesMonth && matchesQuery;
@@ -218,7 +233,7 @@ const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-accent">Upcoming Events</p>
                   <h2 className="mt-1 font-heading text-2xl font-black uppercase text-foreground">
-                    Showing {visibleTypes.length} of {globalSchedule.length} Trips
+                    Showing {visibleTypes.length} of {schedule.length} Trips
                   </h2>
                 </div>
                 {(selectedMonth !== "All Months" || selectedCategory !== "Upcoming Events" || searchQuery) && (
@@ -253,8 +268,9 @@ const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
 
                 <div className="grid gap-2">
                   {visibleTypes.map((item) => (
-                    <div
+                    <Link
                       key={`${item.date}-${item.title}`}
+                      to={`/treks/${item.trekId}`}
                       className="grid gap-2 rounded-lg border border-border bg-background p-4 md:grid-cols-[9rem_minmax(0,1.2fr)_10rem_5rem] md:items-center hover:border-primary/50 transition-colors"
                     >
                       <span className="font-heading text-sm font-bold text-primary">{item.date}</span>
@@ -263,7 +279,7 @@ const GlobalSearchBar = ({ reserveTop = true }: GlobalSearchBarProps) => {
                         {item.type}
                       </span>
                       <span className="text-sm font-semibold text-muted-foreground">{item.year}</span>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 

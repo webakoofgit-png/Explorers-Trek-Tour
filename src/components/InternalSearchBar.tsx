@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 
@@ -35,6 +35,12 @@ const InternalSearchBar = () => {
   const [month, setMonth] = useState(searchParams.get("month") || "All Months");
   const [eventType, setEventType] = useState(searchParams.get("type") || "Upcoming Events");
   const isCampingSearch = searchParams.get("type")?.toLowerCase() === "camping";
+
+  useEffect(() => {
+    setQuery(searchParams.get("q") || "");
+    setMonth(searchParams.get("month") || "All Months");
+    setEventType(searchParams.get("type") || "Upcoming Events");
+  }, [searchParams]);
 
   const openSchedule = (nextQuery = query, nextMonth = month, nextEventType = eventType) => {
     const params = new URLSearchParams();

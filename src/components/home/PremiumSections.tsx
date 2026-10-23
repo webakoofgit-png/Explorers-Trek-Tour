@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, CalendarClock, ChevronLeft, ChevronRight, MessageCircle, Mountain, ShieldCheck, Star } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight, MessageCircle, Mountain, ShieldCheck, Star } from "lucide-react";
 import { awards, googleReviews, socialChannels, trustStats } from "@/data/siteData";
+import yearsExperienceLogo from "@/assets/Explorer logo (1).png";
 import {
   getWhatsAppGroupLink,
   SITE_SETTINGS_UPDATED_EVENT,
@@ -43,55 +44,65 @@ export const StatsSection = () => (
   <section className="bg-background px-4 py-6">
     <div className="container mx-auto grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
       {trustStats.map((stat) => {
+        const isYearsExperience = stat.label === "Years Experience";
         const isGoogleRating = stat.label === "Google Rating";
-        const StatIcon = stat.label === "Years Experience"
-          ? CalendarClock
-          : stat.label === "Treks Completed"
-            ? Mountain
-            : ShieldCheck;
+        const StatIcon = stat.label === "Treks Completed" ? Mountain : ShieldCheck;
 
         return (
-        <div key={stat.label} className="rounded-lg border border-border bg-card p-4 text-center shadow-sm">
-          {isGoogleRating ? (
-            <img
-              src="/google-g-logo.svg"
-              alt="Google"
-              className="mx-auto mb-2 h-10 w-10 object-contain"
-              loading="lazy"
-            />
-          ) : stat.label === "Certified by Maharashtra Tourism" ? (
-            <img
-              src="/maharashtra.png"
-              alt="Maharashtra Tourism"
-              className="mx-auto mb-2 h-10 w-10 object-contain"
-            />
-          ) : (
-            <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <StatIcon className="h-5 w-5" aria-hidden="true" />
-            </div>
-          )}
-          <div className="font-heading text-2xl font-black text-primary">{stat.number}</div>
-          <div className="mt-1 font-heading text-xs font-black uppercase text-foreground">{stat.label}</div>
-          {isGoogleRating && (
-            <div className="mt-1 flex justify-center gap-0.5" aria-label="4.7 out of 5 stars">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={index} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
-              ))}
-            </div>
-          )}
-          {"link" in stat ? (
-            <a
-              href={stat.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 block text-[0.7rem] font-semibold text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
-            >
-              {stat.note}
-            </a>
-          ) : (
-            <div className="mt-0.5 text-[0.7rem] font-semibold text-muted-foreground">{stat.note}</div>
-          )}
-        </div>
+          <div key={stat.label} className="rounded-lg border border-border bg-card p-4 text-center shadow-sm">
+            {isYearsExperience ? (
+              <>
+                <img
+                  src={yearsExperienceLogo}
+                  alt="24 Years Experience"
+                  className="mx-auto h-32 w-32 object-contain"
+                />
+                <div className="mt-0.5 text-[0.7rem] font-semibold text-muted-foreground">{stat.note}</div>
+              </>
+            ) : (
+              <>
+                {isGoogleRating ? (
+                  <img
+                    src="/google-g-logo.svg"
+                    alt="Google"
+                    className="mx-auto mb-2 h-10 w-10 object-contain"
+                    loading="lazy"
+                  />
+                ) : stat.label === "Certified by Maharashtra Tourism" ? (
+                  <img
+                    src="/maharashtra.png"
+                    alt="Maharashtra Tourism"
+                    className="mx-auto mb-2 h-10 w-10 object-contain"
+                  />
+                ) : (
+                  <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <StatIcon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                )}
+                <div className="font-heading text-2xl font-black text-primary">{stat.number}</div>
+                <div className="mt-1 font-heading text-xs font-black uppercase text-foreground">{stat.label}</div>
+                {isGoogleRating && (
+                  <div className="mt-1 flex justify-center gap-0.5" aria-label="4.7 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
+                    ))}
+                  </div>
+                )}
+                {"link" in stat ? (
+                  <a
+                    href={stat.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 block text-[0.7rem] font-semibold text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
+                  >
+                    {stat.note}
+                  </a>
+                ) : (
+                  <div className="mt-0.5 text-[0.7rem] font-semibold text-muted-foreground">{stat.note}</div>
+                )}
+              </>
+            )}
+          </div>
         );
       })}
     </div>

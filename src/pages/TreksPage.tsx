@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { BadgeCheck, Calendar, ChevronRight, Clock, Filter, Grid, ListFilter, MapPin, Sparkles, Users } from "lucide-react";
+import { BadgeCheck, Calendar, ChevronRight, Clock, Filter, Grid, ListFilter, MapPin, Search, Sparkles, Users, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import InternalPageHero from "@/components/InternalPageHero";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
@@ -65,19 +65,19 @@ const seasonFlowCards = [
 
 const seasonInformation = {
   monsoon: {
-    title: "Monsoon Trek Information",
+    title: "Monsoon Special Treks",
     months: "June to September",
-    description: "Expect rain, slippery trails, flowing waterfalls, and lush green landscapes. Carry a rain cover, good-grip shoes, and an extra pair of dry clothes.",
+    description: "The Sahyadri monsoon is breathtaking, but it demands experience and responsibility. Foggy conditions, slippery terrain, flowing waterfalls, and poor route visibility make trained leadership and proven safety practices essential. With Explorers Group's 24+ years of field experience, certified trek leaders, and strict safety protocols, you can explore lush and offbeat Sahyadri trails safely and confidently.",
   },
   winter: {
-    title: "Winter Trek Information",
+    title: "Winter Adventures & Trending Tours",
     months: "October to January",
-    description: "Enjoy cooler weather and clearer views. Layered clothing, a windproof jacket, and a reusable water bottle help keep your trek comfortable.",
+    description: "Winter is the most favourable season for adventure activities in India, especially across Maharashtra and the Sahyadri ranges. The cool climate, clear visibility, and stable weather make it ideal for rock climbing, rappelling, technical treks, and advanced adventure activities. Explorers Group conducts adventure-focused treks, outdoor training programs, winter camping, and short tours to destinations such as Hampi, Badami, Gokarna, Murudeshwar, Goa, Dandeli, and the Rann of Kutch, offering a balanced mix of adventure, exploration, and comfort.",
   },
   summer: {
-    title: "Summer Trek Information",
+    title: "Summer Season - Treks | Camps | Tours",
     months: "February to May",
-    description: "Early departures and steady hydration are important. Choose breathable clothing, sun protection, and routes suited to your fitness level.",
+    description: "Summer trekking in Maharashtra and the Sahyadri requires smart planning and experienced execution. High temperatures, dehydration risks, and poor scheduling can make a trek uncomfortable when not handled correctly. Explorers Group plans most summer departures as night or early-morning treks to reduce sun exposure, maintain energy levels, and create a safer experience. Summer programs also include night trails, fireflies festivals, summer camping, the Velas Turtle Festival, and refreshing Konkan tours without compromising safety, comfort, or nature's rhythm.",
   },
   himalayan: {
     title: "Himalayan Trek Information",
@@ -90,6 +90,10 @@ const seasonInformation = {
     description: "Choose a season card above to see the best conditions, important preparation tips, and available date-wise departures for that period.",
   },
 } as const;
+
+type TrekSeason = keyof typeof seasonInformation;
+
+const isTrekSeason = (value: string): value is TrekSeason => value in seasonInformation;
 
 export interface FlatBatchDeparture {
   id: string;
@@ -129,11 +133,12 @@ const getOverviewPreview = (overview: string, maxLength = 120) =>
   overview.length > maxLength ? `${overview.slice(0, maxLength).trimEnd()}…` : overview;
 
 const TreksPage = () => {
-  const [searchParams] = useSearchParams();
-  const [activeSeason, setActiveSeason] = useState<"monsoon" | "winter" | "summer" | "himalayan" | "all">(getCurrentTrekSeason);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeSeason, setActiveSeason] = useState<TrekSeason>(getCurrentTrekSeason);
   const [selectedMonth, setSelectedMonth] = useState<string>("All");
-  const [viewMode, setViewMode] = useState<"timeline" | "grid">("timeline");
+  const [viewMode, setViewMode] = useState<"timeline" | "grid">("grid");
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleTrekCount, setVisibleTrekCount] = useState(9);
   const activeSeasonInfo = seasonInformation[activeSeason];
 
   const urlTypeFilter = searchParams.get("type");
@@ -147,8 +152,15 @@ const TreksPage = () => {
     if (monthParam) {
       const matchingMonth = monthNamesOrder.find((item) => item.startsWith(`${monthParam} `));
       setSelectedMonth(matchingMonth || "All");
+      if (!isCampingPage && matchingMonth) {
+        const matchingSeason = Object.entries(seasonMonthMap).find(([, months]) => months.includes(matchingMonth))?.[0];
+        if (matchingSeason && isTrekSeason(matchingSeason)) setActiveSeason(matchingSeason);
+      }
     } else {
       setSelectedMonth("All");
+      if (!searchParams.get("season") && !isCampingPage) {
+        setActiveSeason(queryParam ? "all" : getCurrentTrekSeason());
+      }
     }
 
     // Camping keeps all seasonal camps available by default.
@@ -158,8 +170,8 @@ const TreksPage = () => {
 
     // 1. Check URL query params for season
     const seasonParam = searchParams.get("season");
-    if (!isCampingPage && seasonParam && ["monsoon", "winter", "summer", "himalayan", "all"].includes(seasonParam.toLowerCase())) {
-      setActiveSeason(seasonParam.toLowerCase() as any);
+    if (!isCampingPage && seasonParam && isTrekSeason(seasonParam.toLowerCase())) {
+      setActiveSeason(seasonParam.toLowerCase());
     }
 
     // 2. Check URL Hash (e.g. #month-9-2026 or #month-09-2026)
@@ -196,7 +208,7 @@ const TreksPage = () => {
         }
       }
     }
-  }, [searchParams]);
+  }, [isCampingPage, searchParams]);
 
   // Flatten all trek batches into date-wise departure items sorted chronologically
   const allFlatDepartures = useMemo(() => {
@@ -247,6 +259,17 @@ const TreksPage = () => {
     // Current and upcoming departures are shown first; passed departures move to the end.
     return sortDateStringUpcomingFirst(list);
   }, [urlTypeFilter]);
+
+  const handleSeasonSelect = (season: Exclude<TrekSeason, "all">) => {
+    const nearestUpcomingDeparture = allFlatDepartures.find((item) => {
+      if (isTrekDatePast(item.dateStr)) return false;
+      if (season === "himalayan") return item.tourType === "Himalayan Trek";
+      return seasonMonthMap[season]?.includes(item.monthYear);
+    });
+
+    setActiveSeason(season);
+    setSelectedMonth(nearestUpcomingDeparture?.monthYear || "All");
+  };
 
   // Filter departures by Active Season & Selected Month & Search Query
   const filteredDepartures = useMemo(() => {
@@ -303,6 +326,13 @@ const TreksPage = () => {
     ...Object.entries(pastDeparturesByMonth).map(([monthYear, items]) => ({ monthYear, items, isPast: true })),
   ];
 
+  const upcomingGridDepartures = filteredDepartures.filter((item) => !isTrekDatePast(item.dateStr));
+  const visibleGridDepartures = upcomingGridDepartures.slice(0, visibleTrekCount);
+
+  useEffect(() => {
+    setVisibleTrekCount(9);
+  }, [activeSeason, searchQuery, selectedMonth]);
+
   // Available months list based on current active season
   const availableMonths = useMemo(() => {
     if (activeSeason === "all" || activeSeason === "himalayan") return monthNamesOrder;
@@ -319,6 +349,23 @@ const TreksPage = () => {
         el.scrollIntoView({ behavior: "smooth" });
       }
     }
+  };
+
+  const updateTrekSearch = (nextQuery: string) => {
+    setSearchQuery(nextQuery);
+    const nextParams = new URLSearchParams(searchParams);
+
+    if (nextQuery.trim()) {
+      nextParams.set("q", nextQuery);
+      nextParams.delete("month");
+      nextParams.delete("season");
+      setActiveSeason("all");
+      setSelectedMonth("All");
+    } else {
+      nextParams.delete("q");
+    }
+
+    setSearchParams(nextParams, { replace: true });
   };
 
   return (
@@ -348,10 +395,7 @@ const TreksPage = () => {
                   <button
                     key={season.id}
                     type="button"
-                    onClick={() => {
-                      setActiveSeason(season.id);
-                      setSelectedMonth("All");
-                    }}
+                    onClick={() => handleSeasonSelect(season.id)}
                     className={`group overflow-hidden rounded-xl border bg-card text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg ${
                       isActive ? "border-primary ring-2 ring-primary/20" : "border-border hover:border-primary/60"
                     }`}
@@ -380,85 +424,6 @@ const TreksPage = () => {
                   </button>
                 );
               })}
-            </div>
-          </div>
-
-          {/* Season Selector Bar (Monsoon, Winter, Summer, Himalayan, All) */}
-          <div className="mb-6 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-accent">Season Selector</p>
-              <h2 className="mt-1 font-heading text-2xl font-black uppercase text-foreground">
-                Season Wise Trek Flow
-              </h2>
-            </div>
-
-            {/* Season Filter Tabs */}
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => {
-                  setActiveSeason("monsoon");
-                  setSelectedMonth("All");
-                }}
-                className={`rounded-lg px-4 py-2.5 text-xs font-heading font-black uppercase tracking-wider transition-colors ${
-                  activeSeason === "monsoon"
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
-              >
-                Monsoon (Jun-Sep)
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSeason("winter");
-                  setSelectedMonth("All");
-                }}
-                className={`rounded-lg px-4 py-2.5 text-xs font-heading font-black uppercase tracking-wider transition-colors ${
-                  activeSeason === "winter"
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
-              >
-                Winter (Oct-Jan)
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSeason("summer");
-                  setSelectedMonth("All");
-                }}
-                className={`rounded-lg px-4 py-2.5 text-xs font-heading font-black uppercase tracking-wider transition-colors ${
-                  activeSeason === "summer"
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
-              >
-                Summer (Feb-May)
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSeason("himalayan");
-                  setSelectedMonth("All");
-                }}
-                className={`rounded-lg px-4 py-2.5 text-xs font-heading font-black uppercase tracking-wider transition-colors ${
-                  activeSeason === "himalayan"
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
-              >
-                Himalayan Treks
-              </button>
-              <button
-                onClick={() => {
-                  setActiveSeason("all");
-                  setSelectedMonth("All");
-                }}
-                className={`rounded-lg px-4 py-2.5 text-xs font-heading font-black uppercase tracking-wider transition-colors ${
-                  activeSeason === "all"
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
-              >
-                All Seasons
-              </button>
             </div>
           </div>
 
@@ -534,14 +499,29 @@ const TreksPage = () => {
           </div>
 
           {/* Search Box */}
-          {!isCampingPage && <div className="mb-8">
-            <Input
-              type="text"
-              placeholder="Search trek name, location, or fort (e.g. Andharban, Kalsubai, Manali)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="max-w-md bg-card text-sm"
-            />
+          {!isCampingPage && <div className="mb-8 max-w-md">
+            <label htmlFor="trek-search" className="sr-only">Search treks</label>
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+              <Input
+                id="trek-search"
+                type="search"
+                placeholder="Search trek name, location, or fort (e.g. Andharban, Kalsubai, Manali)..."
+                value={searchQuery}
+                onChange={(event) => updateTrekSearch(event.target.value)}
+                className="bg-card pl-9 pr-10 text-sm"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => updateTrekSearch("")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-muted-foreground transition hover:bg-muted hover:text-foreground"
+                  aria-label="Clear trek search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
           </div>}
 
           {/* TIMELINE FLOW VIEW (Yuvashakti Style Month-wise & Date-wise) */}
@@ -697,7 +677,19 @@ const TreksPage = () => {
           ) : (
             /* GRID VIEW */
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filteredDepartures.map((item) => (
+              {upcomingGridDepartures.length === 0 ? (
+                <div className="rounded-xl border border-dashed border-border p-12 text-center text-muted-foreground md:col-span-2 xl:col-span-3">
+                  <Calendar className="mx-auto mb-3 h-8 w-8 text-primary" />
+                  <p className="font-heading text-lg font-bold text-foreground">
+                    {searchQuery.trim() ? "No matching treks found" : "New departure dates are being updated"}
+                  </p>
+                  <p className="mt-1 text-xs">
+                    {searchQuery.trim()
+                      ? "Try another trek name, location, fort, or clear the search."
+                      : "Choose another season or month, or contact Explorers for the next available batch."}
+                  </p>
+                </div>
+              ) : visibleGridDepartures.map((item) => (
                 <article key={item.id} className="overflow-hidden rounded-xl border border-border bg-card shadow-sm hover:shadow-lg transition">
                   <Link to={`/treks/${item.trekId}`} className="group block">
                     <div className="relative h-52 overflow-hidden">
@@ -736,6 +728,17 @@ const TreksPage = () => {
                   </Link>
                 </article>
               ))}
+              {upcomingGridDepartures.length > visibleTrekCount && (
+                <div className="flex justify-center pt-2 md:col-span-2 xl:col-span-3">
+                  <Button
+                    type="button"
+                    onClick={() => setVisibleTrekCount((count) => count + 9)}
+                    className="rounded-full px-8 font-heading font-black uppercase tracking-wider gradient-highlight text-highlight-foreground"
+                  >
+                    Show More Treks ({upcomingGridDepartures.length - visibleTrekCount})
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </div>

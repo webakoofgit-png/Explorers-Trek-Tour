@@ -841,9 +841,10 @@ export const googleReviews: GoogleReview[] = [
 ];
 
 export const officialSocialLinks = {
-  instagram: "https://www.instagram.com/explorers_group/",
-  facebook: "https://www.facebook.com/Explorers.DareToDiscover/",
+  instagram: "https://www.instagram.com/explorerstreksandtours?exln=MW92NHEzamJjOTdwcQ==",
+  facebook: "https://www.facebook.com/share/19ywjzVtss/?mibextid=wwXIfr",
   youtube: "https://www.youtube.com/channel/UC5ffVZUnp2p2Bi6VqNyMRcw",
+  youtubeEmbed: "https://www.youtube-nocookie.com/embed/t8C3iqVIY5A",
   google: "https://share.google/gjutfkcL6JiTO7W7X",
   whatsapp: `https://wa.me/91${brand.whatsapp}?text=${encodeURIComponent(
     "Hello Explorers! I am interested in your treks and tours. Please share the upcoming options and booking details.",
